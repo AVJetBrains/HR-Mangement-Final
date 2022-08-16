@@ -1,4 +1,4 @@
-package com.example.hrmangementfinal;
+package com.example.hrmanagementfinal;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

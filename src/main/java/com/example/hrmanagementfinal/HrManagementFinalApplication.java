@@ -1,13 +1,12 @@
-package com.example.hrmangementfinal;
+package com.example.hrmanagementfinal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HrMangementFinalApplication {
+public class HrManagementFinalApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HrMangementFinalApplication.class, args);
+        SpringApplication.run(HrManagementFinalApplication.class, args);
     }
-
 }
