@@ -28,7 +28,6 @@ public class EmployeeAccessor {
             while (resultSet.next()) {
                 employees.add(resultSet.getString(1));
             }
-
         }
         catch (SQLException e) {
             e.printStackTrace();
