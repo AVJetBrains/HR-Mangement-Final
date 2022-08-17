@@ -15,7 +15,6 @@ public class EmployeeServices {
         employeeAccessor.getEmployees();
     }
 
-
     // Write the code for generating link
 
     public void sendResetPasswordLink(String email) {
