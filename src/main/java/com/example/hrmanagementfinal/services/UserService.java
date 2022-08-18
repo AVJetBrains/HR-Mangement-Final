@@ -1,38 +1,34 @@
 package com.example.hrmanagementfinal.services;
 
 import com.example.hrmanagementfinal.Exception.UserNotFoundException;
-import com.example.hrmanagementfinal.accessor.EmployeeAccessor;
+import com.example.hrmanagementfinal.accessor.UserAccessor;
 import com.example.hrmanagementfinal.models.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EmployeeServices {
+public class UserService {
 
     @Autowired
-    private EmployeeAccessor employeeAccessor;
+    private UserAccessor userAccessor;
 
-
-    public void getEmployees(){
-        employeeAccessor.getEmployees();
-    }
-
-    // code for generating link
 
     public void sendResetPasswordLink(String email) {
-        UserDTO userDTO = employeeAccessor.getUserByEmail(email);
+        UserDTO userDTO = userAccessor.getUserByEmail(email);
 
         if (userDTO == null) {
             throw new UserNotFoundException(email);
         }
-        // code for sending the email
+
+        // Write the code for generating link
+        // Write the code for sending the email
     }
 
     public boolean updatePassword(String userId, String newPassword) {
-        return employeeAccessor.updatePassword(userId, newPassword);
+        return userAccessor.updatePassword(userId, newPassword);
     }
 
     public UserDTO getUserByEmail(String email) {
-        return employeeAccessor.getUserByEmail(email);
+        return userAccessor.getUserByEmail(email);
     }
 }
