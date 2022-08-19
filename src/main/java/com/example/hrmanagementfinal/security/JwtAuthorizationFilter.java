@@ -20,9 +20,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.MalformedParametersException;
 import java.util.Arrays;
 import java.util.Date;
 
+import static com.example.hrmanagementfinal.security.SecurityConstants.HEADER_STRING;
+import static com.example.hrmanagementfinal.security.SecurityConstants.TOKEN_PREFIX;
 import static java.security.KeyRep.Type.SECRET;
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
@@ -57,7 +60,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
             SecurityContextHolder.getContext().setAuthentication(authentication);
             System.out.println("Authentication = " + authentication.getName());
             chain.doFilter(req, res);
-        } catch (MalformedJwtException | BadCredentialsException ex) {
+        } catch (MalformedParametersException | BadCredentialsException ex) {
             res.setStatus(HttpStatus.UNAUTHORIZED.value());
             return;
         }
