@@ -56,7 +56,7 @@ public class EmployeeAccessor {
     public UserDTO getUserByEmail(String email) {
         UserDTO userDTO = null;
 
-        String query = "SELECT userId, name, email, password, phoneNo, state, role from user where email = ?";
+        String query = "SELECT userId, name, email, password, phoneNo, role from user where email = ?";
         try(Connection connection = dataSource.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
