@@ -1,5 +1,8 @@
 package com.example.hrmanagementfinal.security;
 
+import com.example.hrmanagementfinal.models.AuthDTO;
+import com.example.hrmanagementfinal.models.UserDTO;
+import com.example.hrmanagementfinal.services.AuthService;
 import com.example.hrmanagementfinal.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
+
+import static java.security.KeyRep.Type.SECRET;
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
