@@ -6,6 +6,8 @@ import com.example.hrmanagementfinal.security.Roles;
 import com.example.hrmanagementfinal.security.SecurityConstants;
 import com.example.hrmanagementfinal.services.AuthService;
 import com.example.hrmanagementfinal.services.UserService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

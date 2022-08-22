@@ -4,6 +4,8 @@ import com.example.hrmanagementfinal.models.AuthDTO;
 import com.example.hrmanagementfinal.models.UserDTO;
 import com.example.hrmanagementfinal.services.AuthService;
 import com.example.hrmanagementfinal.services.UserService;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -28,7 +30,7 @@ import static com.example.hrmanagementfinal.security.SecurityConstants.HEADER_ST
 import static com.example.hrmanagementfinal.security.SecurityConstants.TOKEN_PREFIX;
 import static java.security.KeyRep.Type.SECRET;
 
-public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
+public class JwtAuthorizationFilter extends BasicAuthenticationFilter implements JwtAuthorizationFilters {
 
     private UserService userService;
 
@@ -75,7 +77,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                 token = authorizationHeader.replace(TOKEN_PREFIX, "");
                 System.out.println("Token = " + token);
                 Claims claims = Jwts.parser()
-                        .setSigningKey(SECRET.getBytes())
+                        .setSigningKey(SecurityConstants.SECRET.getBytes())
                         .parseClaimsJws(token)
                         .getBody();
 
