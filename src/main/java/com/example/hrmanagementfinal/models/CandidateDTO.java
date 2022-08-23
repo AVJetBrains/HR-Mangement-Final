@@ -9,5 +9,4 @@ public class CandidateDTO {
     private String Name;
     private String Experience;
     private String Skills;
-    private String background;
 }

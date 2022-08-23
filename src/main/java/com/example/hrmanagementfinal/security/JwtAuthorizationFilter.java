@@ -28,7 +28,6 @@ import java.util.Date;
 
 import static com.example.hrmanagementfinal.security.SecurityConstants.HEADER_STRING;
 import static com.example.hrmanagementfinal.security.SecurityConstants.TOKEN_PREFIX;
-import static java.security.KeyRep.Type.SECRET;
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter implements JwtAuthorizationFilters {
 
@@ -41,7 +40,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter implements
     }
 
     @Override
-    protected void doFilterInternal(
+    public void doFilterInternal(
             HttpServletRequest req,
             HttpServletResponse res,
             FilterChain chain) throws IOException, ServletException {
