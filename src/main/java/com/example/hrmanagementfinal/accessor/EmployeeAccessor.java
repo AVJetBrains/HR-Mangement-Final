@@ -53,6 +53,31 @@ public class EmployeeAccessor {
     }
 
 
+    public UserDTO getUserByName(String name) {
+        UserDTO userDTO = null;
+
+        String query = "SELECT userId, name, email, password, phoneNo, role from user where name = ?";
+        try(Connection connection = dataSource.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                userDTO = new UserDTO();
+                userDTO.setUserId(resultSet.getString(1));
+                userDTO.setName(resultSet.getString(2));
+                userDTO.setEmail(resultSet.getString(3));
+                userDTO.setPassword(resultSet.getString(4));
+                userDTO.setPhoneNo(resultSet.getString(5));
+                userDTO.setRole(UserRoles.valueOf(resultSet.getString(7)));
+            }
+        }
+        catch(SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally {
+            return userDTO;
+        }
+    }
     public UserDTO getUserByEmail(String email) {
         UserDTO userDTO = null;
 

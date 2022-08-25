@@ -32,7 +32,7 @@ public class EmployeeServices {
         return employeeAccessor.updatePassword(userId, newPassword);
     }
 
-    public UserDTO getUserByEmail(String email) {
-        return employeeAccessor.getUserByEmail(email);
+    public UserDTO getEmployeeByName(String name) {
+        return employeeAccessor.getUserByName(name);
     }
 }

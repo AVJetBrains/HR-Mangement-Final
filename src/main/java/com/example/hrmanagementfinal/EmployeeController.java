@@ -23,4 +23,10 @@ public class EmployeeController {
         employeeServices.getEmployees();
     }
 
+    @Secured({Roles.User})
+    @GetMapping("/employee?employeeName=?")
+    private void getEmployeeDetails(){
+        employeeServices.getEmployeeByName("");
+    }
+
 }
