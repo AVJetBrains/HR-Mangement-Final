@@ -3,7 +3,7 @@ package com.example.hrmanagementfinal.security;
 import com.example.hrmanagementfinal.models.AuthDTO;
 import com.example.hrmanagementfinal.models.UserDTO;
 import com.example.hrmanagementfinal.services.AuthService;
-import com.example.hrmanagementfinal.services.UserService;
+import com.example.hrmanagementfinal.services.UserServices;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.http.HttpStatus;
@@ -31,7 +31,7 @@ import static com.example.hrmanagementfinal.security.SecurityConstants.TOKEN_PRE
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter implements JwtAuthorizationFilters {
 
-    private UserService userService;
+    private UserServices userService;
 
     private AuthService authService;
 
@@ -48,7 +48,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter implements
         WebApplicationContext webApplicationContext = WebApplicationContextUtils
                 .getWebApplicationContext(servletContext);
         if (userService == null) {
-            userService = (UserService) webApplicationContext.getBean("userService");
+            userService = (UserServices) webApplicationContext.getBean("userServices");
         }
 
         if (authService == null) {

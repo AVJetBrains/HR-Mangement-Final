@@ -1,7 +1,7 @@
 package com.example.hrmanagementfinal.security;
 
 import com.example.hrmanagementfinal.models.UserDTO;
-import com.example.hrmanagementfinal.services.UserService;
+import com.example.hrmanagementfinal.services.UserServices;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class RoleBasedAuthenticationManager implements AuthenticationManager {
 
-    private final UserService userService;
+    private final UserServices userService;
 
 
     @Override

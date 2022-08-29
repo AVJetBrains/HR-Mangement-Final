@@ -5,7 +5,7 @@ import com.example.hrmanagementfinal.models.UserDTO;
 import com.example.hrmanagementfinal.security.Roles;
 import com.example.hrmanagementfinal.security.SecurityConstants;
 import com.example.hrmanagementfinal.services.AuthService;
-import com.example.hrmanagementfinal.services.UserService;
+import com.example.hrmanagementfinal.services.UserServices;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import java.util.Date;
 public class UserController {
 
         @Autowired
-        private UserService userService;
+        private UserServices userService;
 
         @Autowired
         private AuthService authService;

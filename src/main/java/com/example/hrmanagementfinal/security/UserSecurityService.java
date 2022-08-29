@@ -1,6 +1,7 @@
 package com.example.hrmanagementfinal.security;
 
 import com.example.hrmanagementfinal.models.UserDTO;
+import com.example.hrmanagementfinal.services.UserServices;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +14,7 @@ import java.util.Arrays;
 @Component
 public class UserSecurityService implements UserDetailsService {
 
-    private com.example.hrmanagementfinal.services.UserService userService;
+    private UserServices userService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
