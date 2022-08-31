@@ -11,6 +11,8 @@ public class LoginServices {
     @Autowired
     private LoginAccessor loginAccessor;
 
+    public void login(){}
+
 
 
 }
